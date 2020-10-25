@@ -180,3 +180,24 @@ int main()
 		return 0;
 	}
 }
+
+
+#include <iostream>  //bonus task
+using namespace std;
+int main()
+{
+	int tomatoes, peppers, carrots, olives, potatoes, addIngredients;
+	cin >> tomatoes >> peppers >> carrots >> olives >> potatoes >> addIngredients;
+	bool partnerOut = 0;
+	bool partnerIn = 1;
+	bool salad = (tomatoes >= 1 && peppers >= 2 && carrots >= 4 && olives >= 3 && potatoes >= 3 && addIngredients >= 150 && partnerOut);
+	bool soup = (tomatoes >= 2 && peppers >= 3 && carrots >= 5 && olives >= 6 && potatoes >= 10 && addIngredients >= 200 && partnerIn);
+	bool meal = (tomatoes >= 5 && peppers >= 6 && carrots >= 12 && olives >= 7 && potatoes >= 12 && addIngredients >= 300 && partnerIn);
+    bool result = salad || soup || meal;
+
+	cout << boolalpha << result << endl;
+
+	  return 0;
+	
+}
+
