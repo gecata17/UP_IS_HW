@@ -1,1 +1,1 @@
-# UP_IS_HW
+# UP_IS_PRACTICUM
