@@ -1,88 +1,119 @@
-task 01
+task 00
 #include <iostream>
 using namespace std;
 int main()
 {
-    int n;
-    cin >> n;
-    int number=1;
-    while(n>0){
-        number = number * n;
-        n--;
-    }
-    cout << number << endl;
 
+int number;
+    cin >> number;
+
+    bool flag = false;
+    do
+    {
+        if (number % 10 == 1)
+            flag = true;
+        number /= 10;
+    }
+    while (number != 0 && !flag);
+
+    cout << (flag ? "Yes" : "No") << endl;
     return 0;
 }
 
-
-
-
-task01
+task02
 #include <iostream>
 using namespace std;
 int main()
 {
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        
-        cout <<'a'<<i<<"="<<pow(i,2) + (3*i)<<endl;;
-    }
-
-    return 0;
-}
-	
-task 02
-#include <iostream>
-using namespace std;
-int main()
-{
-    int n;
-    int i;
-    int a;
-    int maxNeg = INT_MIN;
-    cin >> n;
-    for (i = 0; i < n; i++) {
-        
-        cin >> a;
-        if (a < 0 && a >= maxNeg) {
-
-                maxNeg = a;
-            }
-        }
-       
-    }
-	
-	
-task 03
-int i;
-    int n;
-    int num1 = 0;
-    int num2 = 1;
-    cin >> n;
-    int nextNum = 0;
-    for (i = 2; i < n; i++) {
-        nextNum = num1 + num2;
-        num1 = num2;
-        num2 = nextNum;
-    }
-    cout << nextNum<<endl;
-    return 0;
-	
-	
-task06
-int main()
-{
-
-	int num, power;
-	cin >> num >> power;
-	int action=0;
-	while (num > 0) {
-		action = pow(num, power);
-		break;
-		
+	int firstNum,secondNum;
+	bool found = false;
+	cin >> firstNum >> secondNum;
+	for (int i = 2; i < firstNum; i++) {
+		if (firstNum % i == 0) {
+			if (secondNum % (i * i) == 0) {
+				found = true;
+				cout << boolalpha << found << endl;
+				break;
+			}
+		}
+		else {
+			cout << boolalpha << found << endl;
+			break;
+		}
 	}
-	cout << action << endl;
  } 
-    
+
+task 03
+#include <iostream>
+using namespace std;
+int main()
+{
+    bool oldCar;
+    bool noConditioner;
+    int horsepower, price,mileage;
+    cin >> horsepower >> mileage >> price>>oldCar>>noConditioner;
+    bool oldPurchaseFirst = (oldCar && (!noConditioner) && horsepower >= 70 && price <= 6000 && mileage < 115000);
+    bool oldPurchaseSecond = (oldCar && noConditioner && horsepower >= 60 && price <= 2000 && mileage < 180000);
+    bool newPurchase = ((!oldCar) && (!noConditioner) && (70<=horsepower<=90) && price <= 25000);
+    bool result = oldPurchaseFirst || oldPurchaseSecond || newPurchase;
+    cout <<boolalpha<< result;
+}
+
+
+task 04
+#include <iostream>
+using namespace std;
+int main()
+{       int group;
+        double ticket;
+        double discount = 0.0;
+        double sum;
+        cin >> group >> ticket;
+        if (5 <= group&& group <= 10) {
+            discount = 0.95 * ticket;
+            sum = group * discount;
+            cout << sum;
+        }
+        else if (11 <= group && group <= 20) {
+            discount = 0.90 * ticket;
+            sum = group * discount;
+            cout << sum;
+        }
+        else if (group >= 21) {
+            discount = 0.85 * ticket;
+            sum = group * discount;
+            cout << sum;
+        }
+        return 0;
+ } 
+
+task05
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n,counter=0;
+	bool out = false;
+	cin >> n;
+	for (int i = 1;; i++) {
+		for (int j = 0; j < i; j++) {
+			cout << i << " ";
+			counter++;
+			if (counter == n) {
+			    out = true;
+				break;
+			}
+		}
+		if (out) {
+			break;
+		}
+	}
+ } 
+
+
+
+
+
+
+
+
