@@ -1,4 +1,4 @@
-task 01
+task 00
 #include <iostream>
 using namespace std;
 int main()
