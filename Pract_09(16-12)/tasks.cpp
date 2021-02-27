@@ -51,6 +51,33 @@ int main()
 
     return 0;
 }
+
+task 02
+#include<iostream>
+using namespace std;
+
+int* resizeArr(int oldArr[], int oldSize, int newSize){
+	int* newArr = new int[newSize];
+	
+	for(int i = 0; i < oldSize; i++){
+		newArr[i] = oldArr[i];
+	}
+	
+	return newArr;
+}
+
+int main(){
+	int arr[3] = {1,2,3};
+	
+	int* newArr = resizeArr(arr,3,4);
+	
+	delete newArr;
+	
+	return 0;
+}
+
+
+
 task03 //first way
 
 int *newArray(int arr1[], int size) {
@@ -91,4 +118,38 @@ int main()
 }
 
 
+task 04
+#include<iostream>
+#include<cmath>
+
+char* fromIntToString(int num) {
+	int sizeStr = floor(log10(num) + 1);
+
+	char *str = new char[sizeStr + 1];
+
+	for (int i= sizeStr-1; i >= 0; i--) {
+		str[i] = num % 10 + '0';
+		num /= 10;
+	}
+
+	str[sizeStr] = '\0';
+	return str;
+}
+
+int main() {
+	int num;
+
+	do {
+		std::cout << "\nVavedi num: ";
+		std::cin >> num;
+	} while (num < 0);
+
+	char* stringNum = fromIntToString(num);
+
+	std::cout << stringNum;
+
+	delete stringNum;
+
+	return 0;
+}
 
